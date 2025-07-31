@@ -12,7 +12,7 @@ type OutputType =
         zh: string;
         en: string;
       };
-      keyboards: {
+      serviceDetail: {
         zh: string[];
         en: string[];
       };
@@ -22,18 +22,46 @@ type OutputType =
         price: number;
         priceUnit: string;
       }[];
-      story: {
-        zh: string;
-        en: string;
-      };
-      explaination: string;
+      address: string;
+      openTime: string;
+      explanation: string;
     }
   | string;
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [systemPrompt, setSystemPrompt] = useState(SYSTEM_PROMPT); // 使用 SYSTEM_PROMPT 作为默认值
-  const [output, setOutput] = useState<OutputType>("");
+  const [output, setOutput] = useState<OutputType>({
+    description: {
+      zh: "教練聯盟堅拒不良銷售，更重視服務質素，以及與學員間的溝通。我們的專業團隊包括香港健美界地位崇高的港隊健美運動員和具不同運動學位，專項訓練，運動創傷及伸展治療的資深教練組成。根據各學員的需要度身制訂個人的健體計劃以達成目標。教練聯盟不受會藉約束，彈性的時間地點，更切合現今繁忙而又重視健康的都市人。我們的課程在10區總店統籌和監控，確保以高質素和最專業運作課程給學員達到效果。",
+      en: "Asian Alliance prioritizes service quality and communication with our members over aggressive sales tactics. Our professional team includes esteemed Hong Kong bodybuilders and experienced coaches with various sports degrees, specializing in training, sports injuries, and stretching therapy. We tailor personal fitness plans to meet each member's needs and achieve their goals. With flexible timing and locations, we cater to the busy urbanites who value health. Our courses are coordinated and monitored by our main store across 10 districts to ensure high-quality and professional operation for our members.",
+    },
+    serviceDetail: {
+      zh: [
+        "私人健身教練服務",
+        "專業運動創傷及伸展治療",
+        "根據學員需要度身定制的健體計劃",
+      ],
+      en: [
+        "Personal fitness coaching",
+        "Professional sports injury and stretching therapy",
+        "Tailored fitness plans based on individual needs",
+      ],
+    },
+    priceItems: [
+      {
+        name: "一個月體驗課程",
+        description: "提供4堂課程，試堂費用$100。",
+        price: 1600,
+        priceUnit: "",
+      },
+    ],
+    address:
+      "【港島區：中環、銅鑼灣 、天后】【九龍區：尖沙咀 、佐敦、黃埔、觀塘】【新界區：荃灣 、元朗 、屯門】",
+    openTime: "具體時間未在網站內提及",
+    explanation:
+      "教練聯盟提供高質素的私人健身教練服務，擁有專業的教練團隊，包括港隊健美運動員和資深教練。我們的服務不受會藉約束，提供彈性的時間和地點，以滿足繁忙都市人的健身需求。我們在10區設有總店，統籌和監控課程質素，確保學員能達到最佳效果。歡迎預約及查詢更多課程詳情。",
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("description");
   const router = useRouter();
@@ -120,8 +148,13 @@ ${error instanceof Error ? error.message : "未知错误"}
 
   const tabs = [
     { id: "description", name: "Description", icon: "📝" },
-    { id: "keyboards", name: "Keywords", icon: "🔤" },
+    { id: "serviceDetail", name: "Service Detail", icon: "🔤" },
     { id: "priceItems", name: "Price Items", icon: "💰" },
+  ];
+
+  const tabs2 = [
+    { id: "info", name: "Information", icon: "🏠" },
+    { id: "explanation", name: "Explanation", icon: "📝" },
   ];
 
   const renderTabContent = () => {
@@ -163,15 +196,15 @@ ${error instanceof Error ? error.message : "未知错误"}
             </div>
           </div>
         );
-      case "keyboards":
+      case "serviceDetail":
         return (
           <div className="space-y-4">
             <div className="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">
               <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3">
-                Chinese Keywords
+                Chinese Service Details
               </h4>
               <div className="flex flex-wrap gap-2">
-                {output.keyboards.zh.map((keyword, index) => (
+                {output.serviceDetail.zh.map((keyword, index) => (
                   <span
                     key={index}
                     className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
@@ -183,10 +216,10 @@ ${error instanceof Error ? error.message : "未知错误"}
             </div>
             <div className="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">
               <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3">
-                English Keywords
+                English Service Details
               </h4>
               <div className="flex flex-wrap gap-2">
-                {output.keyboards.en.map((keyword, index) => (
+                {output.serviceDetail.en.map((keyword, index) => (
                   <span
                     key={index}
                     className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
@@ -219,6 +252,46 @@ ${error instanceof Error ? error.message : "未知错误"}
                 </div>
               </div>
             ))}
+          </div>
+        );
+      case "info":
+        return (
+          <div className="space-y-4">
+            <div className="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                Address
+              </h4>
+              <pre className="whitespace-pre-wrap break-words">
+                <p className="text-slate-700 dark:text-slate-300">
+                  {output.address}
+                </p>
+              </pre>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                Open Time
+              </h4>
+              <pre className="whitespace-pre-wrap break-words">
+                <p className="text-slate-700 dark:text-slate-300">
+                  {output.openTime}
+                </p>
+              </pre>
+            </div>
+          </div>
+        );
+      case "explanation":
+        return (
+          <div className="space-y-4">
+            <div className="bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-slate-200 dark:border-slate-600">
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                Explanation
+              </h4>
+              <pre className="whitespace-pre-wrap break-words">
+                <p className="text-slate-700 dark:text-slate-300">
+                  {output.explanation}
+                </p>
+              </pre>
+            </div>
           </div>
         );
       default:
@@ -293,6 +366,25 @@ ${error instanceof Error ? error.message : "未知错误"}
                     <div className="border-b border-slate-200 dark:border-slate-600">
                       <nav className="-mb-px flex space-x-8" aria-label="Tabs">
                         {tabs.map((tab) => (
+                          <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`${
+                              activeTab === tab.id
+                                ? "border-blue-500 text-blue-600 dark:text-blue-400"
+                                : "border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 dark:text-slate-400 dark:hover:text-slate-300"
+                            } whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors duration-200`}
+                            aria-current={
+                              activeTab === tab.id ? "page" : undefined
+                            }
+                          >
+                            <span>{tab.icon}</span>
+                            <span>{tab.name}</span>
+                          </button>
+                        ))}
+                      </nav>
+                      <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                        {tabs2.map((tab) => (
                           <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
