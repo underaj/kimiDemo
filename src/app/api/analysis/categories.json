@@ -1,0 +1,1462 @@
+[
+  {
+    "categoryId": "HCHM",
+    "label": "外傭招聘"
+  },
+  {
+    "categoryId": "HOPN",
+    "label": "私家看護"
+  },
+  {
+    "categoryId": "LTC",
+    "label": "上門長期護理"
+  },
+  {
+    "categoryId": "RT",
+    "label": "康復訓練"
+  },
+  {
+    "categoryId": "TCO",
+    "label": "陪伴照顧"
+  },
+  {
+    "categoryId": "WHPCC",
+    "label": "月子中心"
+  },
+  {
+    "categoryId": "HOEH",
+    "label": "養老院"
+  },
+  {
+    "categoryId": "CC",
+    "label": "月子中心"
+  },
+  {
+    "categoryId": "CCM",
+    "label": "上門煮月子餐"
+  },
+  {
+    "categoryId": "CMD",
+    "label": "月子餐配送"
+  },
+  {
+    "categoryId": "NC",
+    "label": "新生兒照顧"
+  },
+  {
+    "categoryId": "PM",
+    "label": "產後按摩"
+  },
+  {
+    "categoryId": "PPC",
+    "label": "產後心理輔導"
+  },
+  {
+    "categoryId": "PR",
+    "label": "產後康復"
+  },
+  {
+    "categoryId": "WHLM",
+    "label": "母乳餵養指導"
+  },
+  {
+    "categoryId": "AT",
+    "label": "藝術補習"
+  },
+  {
+    "categoryId": "LAACT",
+    "label": "ACT考試準備"
+  },
+  {
+    "categoryId": "LAAP",
+    "label": "AP考試準備"
+  },
+  {
+    "categoryId": "LAAT",
+    "label": "私人補習"
+  },
+  {
+    "categoryId": "LABAF",
+    "label": "會計-BAFS-商業學補習"
+  },
+  {
+    "categoryId": "LABI",
+    "label": "生物補習"
+  },
+  {
+    "categoryId": "LACH",
+    "label": "中文補習"
+  },
+  {
+    "categoryId": "LACHE",
+    "label": "化學補習"
+  },
+  {
+    "categoryId": "LACHH",
+    "label": "中國歷史補習"
+  },
+  {
+    "categoryId": "LAEC",
+    "label": "經濟補習"
+  },
+  {
+    "categoryId": "LAEL",
+    "label": "英國文學補習"
+  },
+  {
+    "categoryId": "LAEN",
+    "label": "英文補習"
+  },
+  {
+    "categoryId": "LAEXO",
+    "label": "數學M1補習"
+  },
+  {
+    "categoryId": "LAEXT",
+    "label": "數學M2補習"
+  },
+  {
+    "categoryId": "LAGCS",
+    "label": "IGCSE-GCSE考試準備"
+  },
+  {
+    "categoryId": "LAGE",
+    "label": "地理補習"
+  },
+  {
+    "categoryId": "LAGMA",
+    "label": "GRE-GMAT準備"
+  },
+  {
+    "categoryId": "LAHI",
+    "label": "歷史補習"
+  },
+  {
+    "categoryId": "LAIB",
+    "label": "IB考試準備"
+  },
+  {
+    "categoryId": "LAICT",
+    "label": "資訊科技補習"
+  },
+  {
+    "categoryId": "LAIE",
+    "label": "TOEFL-IELTS準備"
+  },
+  {
+    "categoryId": "LALI",
+    "label": "通識補習"
+  },
+  {
+    "categoryId": "LAMA",
+    "label": "數學補習"
+  },
+  {
+    "categoryId": "LAPH",
+    "label": "物理補習"
+  },
+  {
+    "categoryId": "LASAT",
+    "label": "SAT考試準備"
+  },
+  {
+    "categoryId": "LLKO",
+    "label": "韓語課程"
+  },
+  {
+    "categoryId": "AC",
+    "label": "阿拉伯語課程"
+  },
+  {
+    "categoryId": "DC",
+    "label": "荷蘭語課程"
+  },
+  {
+    "categoryId": "LLCA",
+    "label": "廣東話課程"
+  },
+  {
+    "categoryId": "LLENA",
+    "label": "英語課程"
+  },
+  {
+    "categoryId": "LLFR",
+    "label": "法語課程"
+  },
+  {
+    "categoryId": "LLGE",
+    "label": "德語課程"
+  },
+  {
+    "categoryId": "LLIT",
+    "label": "意大利語課程"
+  },
+  {
+    "categoryId": "LLJA",
+    "label": "日語課程"
+  },
+  {
+    "categoryId": "LLMAA",
+    "label": "普通話課程"
+  },
+  {
+    "categoryId": "LLRU",
+    "label": "俄語課程"
+  },
+  {
+    "categoryId": "LLSL",
+    "label": "手語課程"
+  },
+  {
+    "categoryId": "LLSP",
+    "label": "西班牙語課程"
+  },
+  {
+    "categoryId": "LLTH",
+    "label": "泰文課程"
+  },
+  {
+    "categoryId": "PLC",
+    "label": "葡萄牙語課程"
+  },
+  {
+    "categoryId": "LMRA",
+    "label": "饒舌班"
+  },
+  {
+    "categoryId": "LHCE",
+    "label": "大提琴課程"
+  },
+  {
+    "categoryId": "LHCL",
+    "label": "單簧管課程"
+  },
+  {
+    "categoryId": "LHDR",
+    "label": "鼓課程"
+  },
+  {
+    "categoryId": "LHER",
+    "label": "二胡課程"
+  },
+  {
+    "categoryId": "LHFL",
+    "label": "長笛課程"
+  },
+  {
+    "categoryId": "LHGUA",
+    "label": "吉他課程"
+  },
+  {
+    "categoryId": "LHGUE",
+    "label": "電結他班"
+  },
+  {
+    "categoryId": "LHGUZ",
+    "label": "古箏課程"
+  },
+  {
+    "categoryId": "LHKE",
+    "label": "電子琴班"
+  },
+  {
+    "categoryId": "LHMU",
+    "label": "樂理課程"
+  },
+  {
+    "categoryId": "LHPI",
+    "label": "鋼琴課程"
+  },
+  {
+    "categoryId": "LHSA",
+    "label": "色士風課程"
+  },
+  {
+    "categoryId": "LHSI",
+    "label": "唱歌課程"
+  },
+  {
+    "categoryId": "LHTR",
+    "label": "小號課程"
+  },
+  {
+    "categoryId": "LHTRO",
+    "label": "長號課程"
+  },
+  {
+    "categoryId": "LHVI",
+    "label": "小提琴課程"
+  },
+  {
+    "categoryId": "LHVIO",
+    "label": "中提琴課程"
+  },
+  {
+    "categoryId": "LMLW",
+    "label": "填詞班"
+  },
+  {
+    "categoryId": "LMOB",
+    "label": "雙簧管班"
+  },
+  {
+    "categoryId": "LMSA",
+    "label": "編曲課程"
+  },
+  {
+    "categoryId": "LMSC",
+    "label": "作曲課程"
+  },
+  {
+    "categoryId": "LVPMP",
+    "label": "音樂製作課程"
+  },
+  {
+    "categoryId": "LHCER",
+    "label": "陶藝課程"
+  },
+  {
+    "categoryId": "CPC",
+    "label": "蠟燭製作課程"
+  },
+  {
+    "categoryId": "LACSE",
+    "label": "縫紉課程"
+  },
+  {
+    "categoryId": "LDMO",
+    "label": "現代舞班"
+  },
+  {
+    "categoryId": "LDPO",
+    "label": "鋼管舞班"
+  },
+  {
+    "categoryId": "LDPOP",
+    "label": "機械舞班"
+  },
+  {
+    "categoryId": "LHBA",
+    "label": "芭蕾舞班"
+  },
+  {
+    "categoryId": "LHCC",
+    "label": "書法課程"
+  },
+  {
+    "categoryId": "LHCHE",
+    "label": "國際象棋班"
+  },
+  {
+    "categoryId": "LHCR",
+    "label": "手工藝課程"
+  },
+  {
+    "categoryId": "LHCW",
+    "label": "咖啡課程"
+  },
+  {
+    "categoryId": "LHDAH",
+    "label": "Hip Hop班"
+  },
+  {
+    "categoryId": "LHDAJ",
+    "label": "爵士舞班"
+  },
+  {
+    "categoryId": "LHFA",
+    "label": "花藝課程"
+  },
+  {
+    "categoryId": "LHKP",
+    "label": "K-Pop舞蹈班"
+  },
+  {
+    "categoryId": "LHLE",
+    "label": "皮革藝術班"
+  },
+  {
+    "categoryId": "LHMA",
+    "label": "魔術班"
+  },
+  {
+    "categoryId": "LHPA",
+    "label": "畫畫課程"
+  },
+  {
+    "categoryId": "LHPG",
+    "label": "兒童Playgroup"
+  },
+  {
+    "categoryId": "LHPH",
+    "label": "攝影課程"
+  },
+  {
+    "categoryId": "LHSIL",
+    "label": "銀飾品班"
+  },
+  {
+    "categoryId": "LPCC",
+    "label": "木工課程"
+  },
+  {
+    "categoryId": "WC",
+    "label": "編織課程"
+  },
+  {
+    "categoryId": "LSRC",
+    "label": "攀石班"
+  },
+  {
+    "categoryId": "JC",
+    "label": "柔道課程"
+  },
+  {
+    "categoryId": "LSBA",
+    "label": "羽毛球課程"
+  },
+  {
+    "categoryId": "LSBAS",
+    "label": "籃球課程"
+  },
+  {
+    "categoryId": "LSBOX",
+    "label": "拳擊課程"
+  },
+  {
+    "categoryId": "LSFB",
+    "label": "足球課程"
+  },
+  {
+    "categoryId": "LSFC",
+    "label": "劍擊班"
+  },
+  {
+    "categoryId": "LSGO",
+    "label": "高爾夫課程"
+  },
+  {
+    "categoryId": "LSIS",
+    "label": "溜冰班"
+  },
+  {
+    "categoryId": "LSKA",
+    "label": "空手道課程"
+  },
+  {
+    "categoryId": "LSMMA",
+    "label": "綜合格鬥課程"
+  },
+  {
+    "categoryId": "LSQU",
+    "label": "壁球班"
+  },
+  {
+    "categoryId": "LSRS",
+    "label": "滑板課程"
+  },
+  {
+    "categoryId": "LSRT",
+    "label": "跑步訓練班"
+  },
+  {
+    "categoryId": "LSSU",
+    "label": "衝浪班"
+  },
+  {
+    "categoryId": "LSSW",
+    "label": "游泳課程"
+  },
+  {
+    "categoryId": "LSTA",
+    "label": "跆拳道課程"
+  },
+  {
+    "categoryId": "LSTE",
+    "label": "網球課程"
+  },
+  {
+    "categoryId": "LSTH",
+    "label": "泰拳班"
+  },
+  {
+    "categoryId": "LSTT",
+    "label": "乒乓球課程"
+  },
+  {
+    "categoryId": "LSVO",
+    "label": "排球班"
+  },
+  {
+    "categoryId": "LVBT",
+    "label": "美容培訓課程"
+  },
+  {
+    "categoryId": "LVFD",
+    "label": "時裝設計課程"
+  },
+  {
+    "categoryId": "LVFPL",
+    "label": "財務規劃課程"
+  },
+  {
+    "categoryId": "LVMAR",
+    "label": "市場營銷培訓課程"
+  },
+  {
+    "categoryId": "LVNT",
+    "label": "溝通技巧"
+  },
+  {
+    "categoryId": "LVSEO",
+    "label": "SEO-SEM技能"
+  },
+  {
+    "categoryId": "LVST",
+    "label": "銷售培訓課程"
+  },
+  {
+    "categoryId": "DAC",
+    "label": "數據分析班"
+  },
+  {
+    "categoryId": "FA",
+    "label": "金融分析"
+  },
+  {
+    "categoryId": "LHDRI",
+    "label": "駕駛課程"
+  },
+  {
+    "categoryId": "LHMAK",
+    "label": "化妝班"
+  },
+  {
+    "categoryId": "LVWT",
+    "label": "品酒班"
+  },
+  {
+    "categoryId": "PJM",
+    "label": "項目管理"
+  },
+  {
+    "categoryId": "PRS",
+    "label": "公共關係技巧"
+  },
+  {
+    "categoryId": "PSC",
+    "label": "編程技能課程"
+  },
+  {
+    "categoryId": "HDAC",
+    "label": "門禁及考勤系統安裝"
+  },
+  {
+    "categoryId": "BOCNI",
+    "label": "網絡設備安裝"
+  },
+  {
+    "categoryId": "FI",
+    "label": "傢俬安裝"
+  },
+  {
+    "categoryId": "HDDI",
+    "label": "電子門鎖安裝"
+  },
+  {
+    "categoryId": "HDIN",
+    "label": "防蚊網及紗窗安裝"
+  },
+  {
+    "categoryId": "HDSE",
+    "label": "防盜警報系統安裝"
+  },
+  {
+    "categoryId": "HDTF",
+    "label": "淘寶傢俬安裝"
+  },
+  {
+    "categoryId": "HESS",
+    "label": "音響系統安裝"
+  },
+  {
+    "categoryId": "HHDO",
+    "label": "門安裝"
+  },
+  {
+    "categoryId": "HHLIG",
+    "label": "燈飾安裝"
+  },
+  {
+    "categoryId": "HHSPI",
+    "label": "太陽能板安裝"
+  },
+  {
+    "categoryId": "HHWIN",
+    "label": "窗安裝"
+  },
+  {
+    "categoryId": "HITWM",
+    "label": "五金安裝"
+  },
+  {
+    "categoryId": "HTI",
+    "label": "家庭影院安裝"
+  },
+  {
+    "categoryId": "IOSHS",
+    "label": "智能家居系統安裝"
+  },
+  {
+    "categoryId": "BGOF",
+    "label": "辦公室室內設計和裝修"
+  },
+  {
+    "categoryId": "BGRIN",
+    "label": "餐廳室內設計和裝修"
+  },
+  {
+    "categoryId": "BOSR",
+    "label": "商鋪裝修"
+  },
+  {
+    "categoryId": "HHIN",
+    "label": "室內設計"
+  },
+  {
+    "categoryId": "HHKI",
+    "label": "局部裝修"
+  },
+  {
+    "categoryId": "HHWH",
+    "label": "全屋裝修"
+  },
+  {
+    "categoryId": "KD",
+    "label": "廚房裝修"
+  },
+  {
+    "categoryId": "LRD",
+    "label": "客廳裝修"
+  },
+  {
+    "categoryId": "OQPR",
+    "label": "驗樓服務"
+  },
+  {
+    "categoryId": "RD",
+    "label": "房間裝修"
+  },
+  {
+    "categoryId": "HHFUR",
+    "label": "傢私工程"
+  },
+  {
+    "categoryId": "AWP",
+    "label": "鋁窗工程"
+  },
+  {
+    "categoryId": "BP",
+    "label": "鋪磚工程"
+  },
+  {
+    "categoryId": "CPE",
+    "label": "木工工程"
+  },
+  {
+    "categoryId": "HHDD",
+    "label": "清拆工程"
+  },
+  {
+    "categoryId": "HHEC",
+    "label": "工程公司"
+  },
+  {
+    "categoryId": "HHFLO",
+    "label": "木地板工程"
+  },
+  {
+    "categoryId": "HHFTS",
+    "label": "地磚工程"
+  },
+  {
+    "categoryId": "HHPA",
+    "label": "油漆工程"
+  },
+  {
+    "categoryId": "HHPL",
+    "label": "水泥工程"
+  },
+  {
+    "categoryId": "HHSF",
+    "label": "搭棚工程"
+  },
+  {
+    "categoryId": "HHWA",
+    "label": "防水工程"
+  },
+  {
+    "categoryId": "HHWI",
+    "label": "電力工程"
+  },
+  {
+    "categoryId": "HPPL",
+    "label": "水管工程"
+  },
+  {
+    "categoryId": "OQWI",
+    "label": "驗窗服務"
+  },
+  {
+    "categoryId": "HHWFP",
+    "label": "地板打蠟及拋光"
+  },
+  {
+    "categoryId": "HWWIC",
+    "label": "玻璃窗清潔"
+  },
+  {
+    "categoryId": "HRTA",
+    "label": "平板電腦維修"
+  },
+  {
+    "categoryId": "ACR",
+    "label": "冷氣機維修"
+  },
+  {
+    "categoryId": "BER",
+    "label": "浴室設備維修"
+  },
+  {
+    "categoryId": "DR",
+    "label": "門維修"
+  },
+  {
+    "categoryId": "FP",
+    "label": "傢俬維修"
+  },
+  {
+    "categoryId": "FRR",
+    "label": "地板修復"
+  },
+  {
+    "categoryId": "HEWR",
+    "label": "家電維修"
+  },
+  {
+    "categoryId": "HHLC",
+    "label": "開鎖換鎖"
+  },
+  {
+    "categoryId": "HHWD",
+    "label": "漏水檢測"
+  },
+  {
+    "categoryId": "HIAR",
+    "label": "天線維修"
+  },
+  {
+    "categoryId": "HISR",
+    "label": "梳化翻新"
+  },
+  {
+    "categoryId": "HIWMR",
+    "label": "洗衣機維修"
+  },
+  {
+    "categoryId": "HPPLD",
+    "label": "通渠工程"
+  },
+  {
+    "categoryId": "HRCO",
+    "label": "電腦維修"
+  },
+  {
+    "categoryId": "HRDA",
+    "label": "數據恢復"
+  },
+  {
+    "categoryId": "HRMO",
+    "label": "手機維修"
+  },
+  {
+    "categoryId": "LMTU",
+    "label": "鋼琴調音"
+  },
+  {
+    "categoryId": "LR",
+    "label": "燈飾維修"
+  },
+  {
+    "categoryId": "WAP",
+    "label": "牆壁維修"
+  },
+  {
+    "categoryId": "WR",
+    "label": "窗修理"
+  },
+  {
+    "categoryId": "FR",
+    "label": "家庭搬遷"
+  },
+  {
+    "categoryId": "HMOR",
+    "label": "辦公室搬遷"
+  },
+  {
+    "categoryId": "HMPR",
+    "label": "搬運鋼琴"
+  },
+  {
+    "categoryId": "HMRE",
+    "label": "搬運服務"
+  },
+  {
+    "categoryId": "HMSF",
+    "label": "搬梳化"
+  },
+  {
+    "categoryId": "HMST",
+    "label": "迷利倉或儲存服務"
+  },
+  {
+    "categoryId": "OCRC",
+    "label": "清理大型垃圾服務"
+  },
+  {
+    "categoryId": "ORFR",
+    "label": "傢俬棄置服務"
+  },
+  {
+    "categoryId": "CTR",
+    "label": "汽車運輸"
+  },
+  {
+    "categoryId": "HMCW",
+    "label": "建築廢料棄置"
+  },
+  {
+    "categoryId": "HME",
+    "label": "搬運醫療設備"
+  },
+  {
+    "categoryId": "HMFR",
+    "label": "傢俬回收"
+  },
+  {
+    "categoryId": "HMOU",
+    "label": "移民搬運"
+  },
+  {
+    "categoryId": "HMPC",
+    "label": "鋼琴回收"
+  },
+  {
+    "categoryId": "OCTT",
+    "label": "拖車"
+  },
+  {
+    "categoryId": "ORTB",
+    "label": "淘寶集運"
+  },
+  {
+    "categoryId": "PIT",
+    "label": "珍貴物品運輸"
+  },
+  {
+    "categoryId": "PT",
+    "label": "寵物運輸"
+  },
+  {
+    "categoryId": "DB",
+    "label": "狗狗遛彎"
+  },
+  {
+    "categoryId": "OPGR",
+    "label": "上門寵物美容"
+  },
+  {
+    "categoryId": "PHB",
+    "label": "上門寵物洗澡"
+  },
+  {
+    "categoryId": "POTD",
+    "label": "上門寵物修毛"
+  },
+  {
+    "categoryId": "CT",
+    "label": "比賽訓練"
+  },
+  {
+    "categoryId": "OPTR",
+    "label": "基本服從訓練"
+  },
+  {
+    "categoryId": "OPHT",
+    "label": "寵物酒店"
+  },
+  {
+    "categoryId": "OPSI",
+    "label": "寵物寄養"
+  },
+  {
+    "categoryId": "WHPAR",
+    "label": "親子互動輔導"
+  },
+  {
+    "categoryId": "WHSPT",
+    "label": "言語治療"
+  },
+  {
+    "categoryId": "EWBC",
+    "label": "過大禮"
+  },
+  {
+    "categoryId": "EWCI",
+    "label": "証婚服務"
+  },
+  {
+    "categoryId": "EWCWM",
+    "label": "大妗姐"
+  },
+  {
+    "categoryId": "BCAD",
+    "label": "公司週年晚宴籌備"
+  },
+  {
+    "categoryId": "BTSH",
+    "label": "商場活動統籌"
+  },
+  {
+    "categoryId": "EEEV",
+    "label": "活動MC"
+  },
+  {
+    "categoryId": "EOED",
+    "label": "展覽佈置"
+  },
+  {
+    "categoryId": "EOPD",
+    "label": "派對佈置"
+  },
+  {
+    "categoryId": "EOWD",
+    "label": "婚禮佈置"
+  },
+  {
+    "categoryId": "EVBA",
+    "label": "Band房出租"
+  },
+  {
+    "categoryId": "EVEV",
+    "label": "活動場地租賃"
+  },
+  {
+    "categoryId": "EVMU",
+    "label": "樂器練習室"
+  },
+  {
+    "categoryId": "EVPH",
+    "label": "攝影工作室租賃"
+  },
+  {
+    "categoryId": "EWPL",
+    "label": "婚禮策劃"
+  },
+  {
+    "categoryId": "PPP",
+    "label": "私人派對策劃"
+  },
+  {
+    "categoryId": "BM",
+    "label": "新娘化妝"
+  },
+  {
+    "categoryId": "EHHMPE",
+    "label": "演出化妝"
+  },
+  {
+    "categoryId": "EHHMSM",
+    "label": "活動化妝"
+  },
+  {
+    "categoryId": "EHHMWE",
+    "label": "婚禮化妝"
+  },
+  {
+    "categoryId": "EOHM",
+    "label": "活動髮型及化妝"
+  },
+  {
+    "categoryId": "MM",
+    "label": "男人化妝"
+  },
+  {
+    "categoryId": "SEM",
+    "label": "特效化妝"
+  },
+  {
+    "categoryId": "EPAE",
+    "label": "無人機攝影"
+  },
+  {
+    "categoryId": "EPKO",
+    "label": "韓式證件相"
+  },
+  {
+    "categoryId": "AP",
+    "label": "建築攝影"
+  },
+  {
+    "categoryId": "EPEV",
+    "label": "活動攝影"
+  },
+  {
+    "categoryId": "EPFA",
+    "label": "家庭攝影"
+  },
+  {
+    "categoryId": "EPHE",
+    "label": "公司頭像攝影"
+  },
+  {
+    "categoryId": "EPPE",
+    "label": "寵物攝影"
+  },
+  {
+    "categoryId": "EPPO",
+    "label": "肖像攝影"
+  },
+  {
+    "categoryId": "EPPR",
+    "label": "產品攝影"
+  },
+  {
+    "categoryId": "EPPW",
+    "label": "婚紗攝影"
+  },
+  {
+    "categoryId": "EWDPH",
+    "label": "婚禮婚宴攝影"
+  },
+  {
+    "categoryId": "EWPH",
+    "label": "婚禮攝影"
+  },
+  {
+    "categoryId": "GP",
+    "label": "美食攝影"
+  },
+  {
+    "categoryId": "IDP",
+    "label": "室內設計攝影"
+  },
+  {
+    "categoryId": "MP",
+    "label": "模特兒攝影"
+  },
+  {
+    "categoryId": "A",
+    "label": "雜技表演"
+  },
+  {
+    "categoryId": "EEBA",
+    "label": "樂隊表演"
+  },
+  {
+    "categoryId": "EECL",
+    "label": "小丑表演"
+  },
+  {
+    "categoryId": "EEDA",
+    "label": "舞蹈表演"
+  },
+  {
+    "categoryId": "EEDJ",
+    "label": "DJ表演"
+  },
+  {
+    "categoryId": "EEMA",
+    "label": "魔術表演"
+  },
+  {
+    "categoryId": "EEMIP",
+    "label": "音樂表演"
+  },
+  {
+    "categoryId": "EESA",
+    "label": "邀請聖誕老人"
+  },
+  {
+    "categoryId": "EESC",
+    "label": "站立喜劇表演"
+  },
+  {
+    "categoryId": "EESP",
+    "label": "歌唱表演"
+  },
+  {
+    "categoryId": "SP",
+    "label": "特技表演"
+  },
+  {
+    "categoryId": "WP",
+    "label": "婚禮表演"
+  },
+  {
+    "categoryId": "EWSU",
+    "label": "男仕禮服租賃"
+  },
+  {
+    "categoryId": "EOAU",
+    "label": "音響設備租賃"
+  },
+  {
+    "categoryId": "EOPA",
+    "label": "派對場地租賃"
+  },
+  {
+    "categoryId": "EWGO",
+    "label": "婚紗租賃"
+  },
+  {
+    "categoryId": "EWWC",
+    "label": "結婚花車"
+  },
+  {
+    "categoryId": "BAMC",
+    "label": "身心靈課程"
+  },
+  {
+    "categoryId": "MDP",
+    "label": "冥想練習"
+  },
+  {
+    "categoryId": "WHHY",
+    "label": "催眠治療"
+  },
+  {
+    "categoryId": "WHSET",
+    "label": "性治療"
+  },
+  {
+    "categoryId": "LHFPE",
+    "label": "女健身教練"
+  },
+  {
+    "categoryId": "LHPE",
+    "label": "私人健身教練"
+  },
+  {
+    "categoryId": "LSCR",
+    "label": "Crossfit班"
+  },
+  {
+    "categoryId": "LSPI",
+    "label": "普拉提課程"
+  },
+  {
+    "categoryId": "LSYO",
+    "label": "瑜伽課程"
+  },
+  {
+    "categoryId": "SDG",
+    "label": "運動飲食指導"
+  },
+  {
+    "categoryId": "WHNU",
+    "label": "營養師服務"
+  },
+  {
+    "categoryId": "OPPI",
+    "label": "私家偵探"
+  },
+  {
+    "categoryId": "OQLA",
+    "label": "公證行"
+  },
+  {
+    "categoryId": "BQ",
+    "label": "寬頻報價"
+  },
+  {
+    "categoryId": "MPT",
+    "label": "手機轉台"
+  },
+  {
+    "categoryId": "OPIM",
+    "label": "移民海外"
+  },
+  {
+    "categoryId": "OERE",
+    "label": "履歷編輯"
+  },
+  {
+    "categoryId": "HOTR",
+    "label": "塔羅占卜"
+  },
+  {
+    "categoryId": "OHNC",
+    "label": "改名"
+  },
+  {
+    "categoryId": "HOFS",
+    "label": "睇風水改運"
+  },
+  {
+    "categoryId": "BD",
+    "label": "品牌設計"
+  },
+  {
+    "categoryId": "BGCO",
+    "label": "海報設計"
+  },
+  {
+    "categoryId": "BGDM",
+    "label": "3D繪圖設計"
+  },
+  {
+    "categoryId": "BGPD",
+    "label": "包裝設計"
+  },
+  {
+    "categoryId": "BADES",
+    "label": "APP設計"
+  },
+  {
+    "categoryId": "BDGR",
+    "label": "平面設計"
+  },
+  {
+    "categoryId": "BGAD",
+    "label": "廣告設計"
+  },
+  {
+    "categoryId": "BGBOO",
+    "label": "小冊子與場刊設計"
+  },
+  {
+    "categoryId": "BGBU",
+    "label": "名片設計"
+  },
+  {
+    "categoryId": "BGFLY",
+    "label": "宣傳單張設計"
+  },
+  {
+    "categoryId": "BGIL",
+    "label": "插畫設計"
+  },
+  {
+    "categoryId": "BGLO",
+    "label": "商標設計"
+  },
+  {
+    "categoryId": "BWDES",
+    "label": "網頁設計"
+  },
+  {
+    "categoryId": "AI",
+    "label": "API集成"
+  },
+  {
+    "categoryId": "BCDL",
+    "label": "區塊鏈開發"
+  },
+  {
+    "categoryId": "BED",
+    "label": "後端開發"
+  },
+  {
+    "categoryId": "BGEPR",
+    "label": "產品管理及設計(PM)"
+  },
+  {
+    "categoryId": "BGUI",
+    "label": "UX-UI設計"
+  },
+  {
+    "categoryId": "BOPOS",
+    "label": "POS系統"
+  },
+  {
+    "categoryId": "BOTE",
+    "label": "電話系統安裝"
+  },
+  {
+    "categoryId": "CNI",
+    "label": "CNI"
+  },
+  {
+    "categoryId": "CSD",
+    "label": "雲端服務開發"
+  },
+  {
+    "categoryId": "DM",
+    "label": "數據庫管理"
+  },
+  {
+    "categoryId": "FED",
+    "label": "前端開發"
+  },
+  {
+    "categoryId": "SOSD",
+    "label": "系統或軟件開發"
+  },
+  {
+    "categoryId": "WMAU",
+    "label": "網站維護與更新"
+  },
+  {
+    "categoryId": "BADEV",
+    "label": "APP開發"
+  },
+  {
+    "categoryId": "BWDEV",
+    "label": "網站開發"
+  },
+  {
+    "categoryId": "BPTV",
+    "label": "電視廣告製作"
+  },
+  {
+    "categoryId": "BPAN",
+    "label": "動畫製作"
+  },
+  {
+    "categoryId": "BPCO",
+    "label": "企業形象片製作"
+  },
+  {
+    "categoryId": "BPVO",
+    "label": "專業配音"
+  },
+  {
+    "categoryId": "BVMIX",
+    "label": "混音處理"
+  },
+  {
+    "categoryId": "BVVI",
+    "label": "影片編輯"
+  },
+  {
+    "categoryId": "BDWE",
+    "label": "微信營銷"
+  },
+  {
+    "categoryId": "BDCON",
+    "label": "內容行銷"
+  },
+  {
+    "categoryId": "BDKOL",
+    "label": "KOL行銷"
+  },
+  {
+    "categoryId": "BDSEM",
+    "label": "搜尋引擎行銷(SEM)"
+  },
+  {
+    "categoryId": "BDSEO",
+    "label": "搜尋引擎優化(SEO)"
+  },
+  {
+    "categoryId": "BMEM",
+    "label": "電子郵件行銷"
+  },
+  {
+    "categoryId": "BTPR",
+    "label": "公關"
+  },
+  {
+    "categoryId": "DMA",
+    "label": "數碼行銷Agency"
+  },
+  {
+    "categoryId": "FM",
+    "label": "影片行銷"
+  },
+  {
+    "categoryId": "LM",
+    "label": "直播行銷"
+  },
+  {
+    "categoryId": "LRBM",
+    "label": "小紅書行銷"
+  },
+  {
+    "categoryId": "LVTB",
+    "label": "企業培訓"
+  },
+  {
+    "categoryId": "BACT",
+    "label": "稅務申報"
+  },
+  {
+    "categoryId": "BADR",
+    "label": "債務重組"
+  },
+  {
+    "categoryId": "BATA",
+    "label": "個人稅務申報"
+  },
+  {
+    "categoryId": "BCHUM",
+    "label": "人力資源外包"
+  },
+  {
+    "categoryId": "BCIN",
+    "label": "財務規劃"
+  },
+  {
+    "categoryId": "BLGE",
+    "label": "法務顧問"
+  },
+  {
+    "categoryId": "BLME",
+    "label": "調解服務"
+  },
+  {
+    "categoryId": "BLSE",
+    "label": "秘書服務"
+  },
+  {
+    "categoryId": "BODE",
+    "label": "資料輸入"
+  },
+  {
+    "categoryId": "BOVI",
+    "label": "虛擬辦公室服務"
+  },
+  {
+    "categoryId": "BWTVP",
+    "label": "資助申請"
+  },
+  {
+    "categoryId": "SM",
+    "label": "薪酬管理"
+  },
+  {
+    "categoryId": "BAAU",
+    "label": "審計"
+  },
+  {
+    "categoryId": "BABO",
+    "label": "會計服務"
+  },
+  {
+    "categoryId": "BLIN",
+    "label": "公司註冊"
+  },
+  {
+    "categoryId": "BOOF",
+    "label": "寫字樓出租"
+  },
+  {
+    "categoryId": "BOCO",
+    "label": "共享工作空間租賃"
+  },
+  {
+    "categoryId": "BOSE",
+    "label": "服務辦公室"
+  }
+]

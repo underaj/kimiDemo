@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { JSDOM } from 'jsdom';
 import { SYSTEM_PROMPT } from './data';
 import { ChatCompletionMessageParam } from 'openai/resources';
 

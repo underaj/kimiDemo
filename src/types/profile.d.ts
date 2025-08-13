@@ -1,0 +1,93 @@
+import { MediaType, MedalType } from "./common";
+
+export type ProfileType = {
+  id: string;
+  shortId: string;
+  supplierId: string;
+  profileName: string;
+  name: string;
+  type: 'S' | 'T';
+  logoUrl: string;
+  description: string;
+  descriptionWithMedia: MediaType[];
+  descriptionFormat?: 'JSON';
+  districts: number[];
+  address: string;
+  businessYears: number;
+  openYear: number;
+  employeeCounts: string;
+  openTime: string;
+  medias: MediaType[];
+  occupation: string;
+  occupationNames: string[];
+  occupationLabels: string[];
+  categories: string[];
+  cateogryLabels: string[];
+  travelTypes: TravelType[];
+  serviceDistricts: number[];
+  ambassador: boolean;
+  rate: number;
+  totalReviews: number;
+  totalHiredTimes: number;
+  hiredTimes: number;
+  reviewsByCategory: {
+    [key: string]: number;
+  };
+  reviewsByTag: {
+    [key: string]: number;
+  };
+  created: string;
+  lastModified: string;
+  businessVerifyStatus: string;
+  qas: {
+    q: string;
+    a: string;
+  }[];
+  successCases: string[];
+  licenses: string[];
+  profileLicenses: {
+    attachments: string[];
+    id: string;
+    licenseName: string;
+  }[];
+  status: string;
+  completionRate: number;
+  completionMissingFields: string[];
+  website: string;
+  linkedinUrl: string;
+  instagramUrl: string;
+  fbUrl: string;
+  serviceDistrictNames: string[];
+  districtNames: string[];
+  subTitle: string;
+  supplierItems: SupplierItemType[];
+  imAverageReplyHours: number;
+  imReplyRate: number;
+  reviews: ReviewType[];
+  eduDegrees: TutorProfileType['eduDegrees'];
+  awards: TutorProfileType['awards'];
+  workExperiences: TutorProfileType['workExperiences'];
+  openTimes: OpenTimeType;
+  availableDays?: string[];
+  prolistingContract: {
+    startDate: string;
+    endDate: string;
+    tier: string;
+    maxOnlineDealNumber: number;
+    allowOnlineChat: boolean;
+    allowDealDiscountPrice: boolean;
+    allowDefineSchedule: boolean;
+  };
+  fav: boolean;
+  medals: MedalType[];
+  needProListingContract: boolean;
+  readProListingTC: boolean;
+  existingLangs: string[];
+  promotionPlan: {
+    name: string;
+    detail: string;
+    price: string;
+  }[];
+  serviceDetail: string[];
+  profileVersion: 'v1' | 'v2';
+};
