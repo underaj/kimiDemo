@@ -305,8 +305,15 @@ ${error instanceof Error ? error.message : "未知错误"}
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12 relative">
-            {/* Logout button */}
-            <div className="absolute top-0 right-0">
+            {/* Navigation buttons */}
+            <div className="absolute top-0 right-0 flex space-x-3">
+              <button
+                onClick={() => router.push("/search")}
+                className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center space-x-2"
+              >
+                <span>🔍</span>
+                <span>搜索</span>
+              </button>
               <button
                 onClick={handleLogout}
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center space-x-2"
