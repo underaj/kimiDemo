@@ -61,10 +61,30 @@ export default function SearchPage() {
 
       if (data.success) {
         console.log("分析结果:", data);
-        setSearchCategoryResult(data.matchedCategories ?? []);
-        setSearchResults(data.finalResults ?? {});
+        const matchedCategories = data.matchedCategories ?? [];
+        const finalResults = data.finalResults ?? {};
 
-        const firstCategory = Object.keys(data.finalResults ?? {})[0];
+        setSearchCategoryResult(matchedCategories);
+        setSearchResults(finalResults);
+
+        // 检查是否有搜索结果
+        const hasResults =
+          Object.keys(finalResults).length > 0 &&
+          Object.values(finalResults).some(
+            (profiles: any) => Array.isArray(profiles) && profiles.length > 0
+          );
+
+        if (!hasResults) {
+          // 设置一个特殊的错误状态来显示无结果消息
+          setSearchError(
+            "Sorry, no service providers were found matching your search criteria. Please try using different keywords or broadening your search scope."
+          );
+          setSearchCategoryResult([]);
+          setSearchResults({});
+          return;
+        }
+
+        const firstCategory = Object.keys(finalResults)[0];
         if (firstCategory) {
           setSelectedCategory(firstCategory);
         }
@@ -241,167 +261,206 @@ export default function SearchPage() {
               </div>
 
               {/* Search Results */}
-              {!isSearching && Object.keys(searchResults).length > 0 && (
-                <div className="bg-white rounded-lg shadow-md">
-                  <div className="px-6 py-4 border-b border-gray-200">
-                    <h2 className="text-lg font-semibold text-gray-900">
-                      Search Results
-                    </h2>
-                  </div>
+              {!isSearching && (
+                <>
+                  {Object.keys(searchResults).length > 0 ? (
+                    <div className="bg-white rounded-lg shadow-md">
+                      <div className="px-6 py-4 border-b border-gray-200">
+                        <h2 className="text-lg font-semibold text-gray-900">
+                          Search Results
+                        </h2>
+                      </div>
 
-                  {/* Category Tags */}
-                  <div className="px-6 py-4 border-b border-gray-200">
-                    <div className="flex flex-wrap gap-2">
-                      {Object.keys(searchResults).map((categoryId) => (
-                        <button
-                          key={categoryId}
-                          onClick={() => setSelectedCategory(categoryId)}
-                          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                            selectedCategory === categoryId
-                              ? "bg-indigo-600 text-white"
-                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                          }`}
-                        >
-                          {getCategoryLabel(categoryId)} (
-                          {searchResults[categoryId]?.length || 0})
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                      {/* Category Tags */}
+                      <div className="px-6 py-4 border-b border-gray-200">
+                        <div className="flex flex-wrap gap-2">
+                          {Object.keys(searchResults).map((categoryId) => (
+                            <button
+                              key={categoryId}
+                              onClick={() => setSelectedCategory(categoryId)}
+                              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                selectedCategory === categoryId
+                                  ? "bg-indigo-600 text-white"
+                                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                              }`}
+                            >
+                              {getCategoryLabel(categoryId)} (
+                              {searchResults[categoryId]?.length || 0})
+                            </button>
+                          ))}
+                        </div>
+                      </div>
 
-                  {/* Results Display */}
-                  {selectedCategory && (
-                    <div className="divide-y divide-gray-200">
-                      {getCurrentCategoryResults().map((profile) => (
-                        <div
-                          key={profile.id}
-                          className="p-6 hover:bg-gray-50 transition-colors"
-                        >
-                          <div className="flex items-start gap-4">
-                            {/* Profile Image */}
-                            {profile.logoUrl && (
-                              <div className="flex-shrink-0">
-                                <img
-                                  src={profile.logoUrl}
-                                  alt={profile.name}
-                                  className="w-16 h-16 rounded-lg object-cover"
-                                />
-                              </div>
-                            )}
+                      {/* Results Display */}
+                      {selectedCategory && (
+                        <div className="divide-y divide-gray-200">
+                          {getCurrentCategoryResults().map((profile) => (
+                            <div
+                              key={profile.id}
+                              className="p-6 hover:bg-gray-50 transition-colors"
+                            >
+                              <div className="flex items-start gap-4">
+                                {/* Profile Image */}
+                                {profile.logoUrl && (
+                                  <div className="flex-shrink-0">
+                                    <img
+                                      src={profile.logoUrl}
+                                      alt={profile.name}
+                                      className="w-16 h-16 rounded-lg object-cover"
+                                    />
+                                  </div>
+                                )}
 
-                            {/* Profile Info */}
-                            <div className="flex-1">
-                              <div className="flex items-start justify-between">
-                                <div>
-                                  <h3 className="text-lg font-semibold text-gray-900">
-                                    {profile.name}
-                                  </h3>
-                                  {profile.subTitle && (
-                                    <p className="text-sm text-gray-600 mt-1">
-                                      {profile.subTitle}
-                                    </p>
-                                  )}
-                                </div>
-
-                                {/* Rating and Stats */}
-                                <div className="text-right">
-                                  {profile.rate > 0 && (
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-yellow-400">★</span>
-                                      <span className="font-semibold">
-                                        {profile.rate}
-                                      </span>
+                                {/* Profile Info */}
+                                <div className="flex-1">
+                                  <div className="flex items-start justify-between">
+                                    <div>
+                                      <h3 className="text-lg font-semibold text-gray-900">
+                                        {profile.name}
+                                      </h3>
+                                      {profile.subTitle && (
+                                        <p className="text-sm text-gray-600 mt-1">
+                                          {profile.subTitle}
+                                        </p>
+                                      )}
                                     </div>
-                                  )}
-                                  <div className="text-sm text-gray-500 mt-1">
-                                    {profile.hiredTimes || 0} times hired
+
+                                    {/* Rating and Stats */}
+                                    <div className="text-right">
+                                      {profile.rate > 0 && (
+                                        <div className="flex items-center gap-1">
+                                          <span className="text-yellow-400">
+                                            ★
+                                          </span>
+                                          <span className="font-semibold">
+                                            {profile.rate}
+                                          </span>
+                                        </div>
+                                      )}
+                                      <div className="text-sm text-gray-500 mt-1">
+                                        {profile.hiredTimes || 0} times hired
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Address and Districts */}
+                                  <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-600">
+                                    {profile.address && (
+                                      <span className="bg-gray-100 px-2 py-1 rounded">
+                                        📍 {profile.address}
+                                      </span>
+                                    )}
+                                    {profile.districtNames &&
+                                      profile.districtNames.length > 0 && (
+                                        <span className="bg-blue-100 px-2 py-1 rounded text-blue-700">
+                                          Service Areas:{" "}
+                                          {profile.districtNames.join(", ")}
+                                        </span>
+                                      )}
+                                  </div>
+
+                                  {/* Business Info */}
+                                  <div className="mt-2 flex flex-wrap gap-4 text-sm text-gray-500">
+                                    {profile.businessYears && (
+                                      <span>
+                                        Experience: {profile.businessYears}{" "}
+                                        years
+                                      </span>
+                                    )}
+                                    {profile.openTime && (
+                                      <span>
+                                        Business Hours: {profile.openTime}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  {/* Medals */}
+                                  {profile.medals &&
+                                    profile.medals.length > 0 && (
+                                      <div className="mt-3 flex flex-wrap gap-2">
+                                        {profile.medals.map((medal, index) => (
+                                          <div
+                                            key={index}
+                                            className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded text-xs"
+                                            title={medal.tip}
+                                          >
+                                            <img
+                                              src={medal.icon}
+                                              alt={medal.name}
+                                              className="w-4 h-4"
+                                            />
+                                            <span className="text-yellow-700">
+                                              {medal.name}
+                                            </span>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                  {/* Action Buttons */}
+                                  <div className="mt-4 flex gap-2">
+                                    <a
+                                      href={`https://www.hellotoby.com/zh-hk/hire-pro/${getCategoryLabel(
+                                        selectedCategory
+                                      )}/${profile.id}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors inline-block"
+                                    >
+                                      View Details
+                                    </a>
                                   </div>
                                 </div>
                               </div>
-
-                              {/* Address and Districts */}
-                              <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-600">
-                                {profile.address && (
-                                  <span className="bg-gray-100 px-2 py-1 rounded">
-                                    📍 {profile.address}
-                                  </span>
-                                )}
-                                {profile.districtNames &&
-                                  profile.districtNames.length > 0 && (
-                                    <span className="bg-blue-100 px-2 py-1 rounded text-blue-700">
-                                      Service Areas:{" "}
-                                      {profile.districtNames.join(", ")}
-                                    </span>
-                                  )}
-                              </div>
-
-                              {/* Business Info */}
-                              <div className="mt-2 flex flex-wrap gap-4 text-sm text-gray-500">
-                                {profile.businessYears && (
-                                  <span>
-                                    Experience: {profile.businessYears} years
-                                  </span>
-                                )}
-                                {profile.openTime && (
-                                  <span>
-                                    Business Hours: {profile.openTime}
-                                  </span>
-                                )}
-                              </div>
-
-                              {/* Medals */}
-                              {profile.medals && profile.medals.length > 0 && (
-                                <div className="mt-3 flex flex-wrap gap-2">
-                                  {profile.medals.map((medal, index) => (
-                                    <div
-                                      key={index}
-                                      className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded text-xs"
-                                      title={medal.tip}
-                                    >
-                                      <img
-                                        src={medal.icon}
-                                        alt={medal.name}
-                                        className="w-4 h-4"
-                                      />
-                                      <span className="text-yellow-700">
-                                        {medal.name}
-                                      </span>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
-
-                              {/* Action Buttons */}
-                              <div className="mt-4 flex gap-2">
-                                <a
-                                  href={`https://www.hellotoby.com/zh-hk/hire-pro/${getCategoryLabel(
-                                    selectedCategory
-                                  )}/${profile.id}`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors inline-block"
-                                >
-                                  View Details
-                                </a>
-                              </div>
                             </div>
-                          </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  )}
+                      )}
 
-                  {/* No Category Selected Message */}
-                  {Object.keys(searchResults).length > 0 &&
-                    !selectedCategory && (
-                      <div className="p-8 text-center text-gray-500">
-                        <p>
-                          Please select a category tag above to view related
-                          results
+                      {/* No Category Selected Message */}
+                      {Object.keys(searchResults).length > 0 &&
+                        !selectedCategory && (
+                          <div className="p-8 text-center text-gray-500">
+                            <p>
+                              Please select a category tag above to view related
+                              results
+                            </p>
+                          </div>
+                        )}
+                    </div>
+                  ) : (
+                    searchQuery &&
+                    !searchError && (
+                      // 新增：搜索完成但无结果的情况
+                      <div className="bg-white rounded-lg shadow-md p-12 text-center">
+                        <svg
+                          className="mx-auto h-16 w-16 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.220 0-4.240-.513-6.072-1.422C7.222 14.477 8.477 15 10 15h2zm2 5.291A7.962 7.962 0 0112 21a7.962 7.962 0 01-6-2.709m12 0A7.962 7.962 0 0018 21a7.962 7.962 0 006-2.709m-6 2.709a7.962 7.962 0 01-6-2.709"
+                          />
+                        </svg>
+                        <h3 className="mt-4 text-xl font-semibold text-gray-900">
+                          未找到相关结果
+                        </h3>
+                        <p className="mt-2 text-gray-600 max-w-md mx-auto">
+                          很抱歉，没有找到符合您搜索条件的服务提供者。请尝试：
                         </p>
+                        <ul className="mt-4 text-sm text-gray-500 space-y-1">
+                          <li>• 使用不同的关键词</li>
+                          <li>• 简化搜索内容</li>
+                          <li>• 尝试更通用的描述</li>
+                        </ul>
                       </div>
-                    )}
-                </div>
+                    )
+                  )}
+                </>
               )}
 
               {/* Welcome Message */}
