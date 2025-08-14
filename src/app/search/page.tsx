@@ -6,6 +6,8 @@ import { AuthUtils } from "@/lib/auth";
 import AuthGuard from "@/components/AuthGuard";
 import { ProfileType } from "@/types/profile";
 import { EXPAND_QUERY_PROMPT, SYSTEM_PROMPT } from "@/app/api/analysis/data";
+import { OPENAI_MODEL_ID } from "@/constants";
+import ModelDropdown from "@/components/ModelDropdown";
 
 type SearchResult = {
   [categoryId: string]: ProfileType[];
@@ -27,6 +29,10 @@ export default function SearchPage() {
   const [systemPrompt, setSystemPrompt] = useState(SYSTEM_PROMPT);
   const [expandPrompt, setExpandPrompt] = useState(EXPAND_QUERY_PROMPT);
   const [activePromptTab, setActivePromptTab] = useState("system"); // 添加标签页状态
+  const [selectedModel, setSelectedModel] = useState<string>(
+    Object.keys(OPENAI_MODEL_ID)[0]
+  );
+  const [expandedQueries, setExpandedQueries] = useState<string[]>([]);
   const router = useRouter();
 
   // 添加分析函数 - 发送到 /api/analysis
@@ -48,6 +54,7 @@ export default function SearchPage() {
           query: searchQuery,
           systemPrompt,
           expandPrompt,
+          model: selectedModel,
         }),
       });
 
@@ -63,7 +70,9 @@ export default function SearchPage() {
         console.log("分析结果:", data);
         const matchedCategories = data.matchedCategories ?? [];
         const finalResults = data.finalResults ?? {};
+        const aiExpandedQueries = data.expandedQueries ?? [];
 
+        setExpandedQueries(aiExpandedQueries);
         setSearchCategoryResult(matchedCategories);
         setSearchResults(finalResults);
 
@@ -71,7 +80,8 @@ export default function SearchPage() {
         const hasResults =
           Object.keys(finalResults).length > 0 &&
           Object.values(finalResults).some(
-            (profiles: any) => Array.isArray(profiles) && profiles.length > 0
+            (profiles) =>
+              Array.isArray(profiles) && (profiles as ProfileType[]).length > 0
           );
 
         if (!hasResults) {
@@ -79,6 +89,7 @@ export default function SearchPage() {
           setSearchError(
             "Sorry, no service providers were found matching your search criteria. Please try using different keywords or broadening your search scope."
           );
+          setExpandedQueries([]);
           setSearchCategoryResult([]);
           setSearchResults({});
           return;
@@ -107,6 +118,7 @@ export default function SearchPage() {
     setIsSearching(false);
     setSearchCategoryResult([]);
     setSearchResults({});
+    setExpandedQueries([]);
   };
 
   const clearSearch = () => {
@@ -115,6 +127,7 @@ export default function SearchPage() {
     setSearchCategoryResult([]);
     setSearchError("");
     setSelectedCategory("");
+    setExpandedQueries([]);
   };
 
   // 獲取標籤顯示名稱的函數
@@ -169,6 +182,10 @@ export default function SearchPage() {
               {/* Search Form */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <form onSubmit={handleSearch} className="space-y-4">
+                  <ModelDropdown
+                    value={selectedModel}
+                    onChange={setSelectedModel}
+                  />
                   <div>
                     <label
                       htmlFor="search"
@@ -229,6 +246,54 @@ export default function SearchPage() {
                     )}
                   </div>
                 </form>
+
+                {/* Expanded Queries Display */}
+                {!isSearching && expandedQueries.length > 0 && (
+                  <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <svg
+                          className="h-5 w-5 text-blue-400 mt-0.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <h3 className="text-sm font-medium text-blue-800">
+                          AI 擴展查詢
+                        </h3>
+                        <div className="mt-2">
+                          <p className="text-xs text-blue-600 mb-2">
+                            AI 自動生成了以下相關查詢來提高搜索準確性：
+                          </p>
+                          <div className="space-y-1">
+                            {expandedQueries.map((query, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center gap-2 text-sm"
+                              >
+                                <span className="inline-flex items-center justify-center w-5 h-5 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">
+                                  {index + 1}
+                                </span>
+                                <span className="text-blue-700 bg-blue-100 px-2 py-1 rounded text-xs">
+                                  {query}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Search Error */}
                 {searchError && (

@@ -2,15 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 import { EXPAND_QUERY_PROMPT, SYSTEM_PROMPT } from './data';
 import categories from './categories.json';
-import { searchSimilar, callGPT } from '@/lib/pinecone';
+import { searchSimilar, callGPT, setModelId } from '@/lib/pinecone';
 import { ProfileType } from '@/types/profile';
 import { AIMessageType } from '@/types/common';
+import { OPENAI_MODEL_ID } from '@/constants';
 
 export async function POST(request: NextRequest) {
   try {
     const receivedData = await request.json();
-    const { query, localeId = 'zh-hk', expandPrompt, systemPrompt } = receivedData;
+    const { query, localeId = 'zh-hk', expandPrompt, systemPrompt, model } = receivedData;
     
+    setModelId(model);
+
     const messages: AIMessageType[] = [
       {
         role: "system",
@@ -45,7 +48,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No matched categories" }, { status: 500 });
     }
 
-    const searchResults = await searchSimilar<{
+    const { searchProfileResults, expandedQueries } = await searchSimilar<{
       category: string;
       id: string;
     }>(query, 60, expandPrompt || EXPAND_QUERY_PROMPT);
@@ -57,8 +60,8 @@ export async function POST(request: NextRequest) {
       finalResults[category.categoryId] = [];
     });
 
-    if (searchResults.length > 0) {
-      for (const result of searchResults) {
+    if (searchProfileResults.length > 0) {
+      for (const result of searchProfileResults) {
         const profileCategories = result.metadata?.category?.split(',') || [];
         for (const profileCategory of profileCategories) {
           if (finalResults[profileCategory] && result.metadata?.id) {
@@ -105,7 +108,8 @@ export async function POST(request: NextRequest) {
       success: true,
       finalResults,
       matchedCategories,
-      searchResults,
+      searchProfileResults,
+      expandedQueries,
     });
     
   } catch (error) {
