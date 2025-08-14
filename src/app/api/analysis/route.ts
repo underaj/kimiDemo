@@ -29,12 +29,17 @@ export async function POST(request: NextRequest) {
     const currentMessages = [...messages];
 
     const findCategoryResult = await callGPT(currentMessages);
-
+    console.log("findCategoryResult", findCategoryResult);
     if (!findCategoryResult) {
-      return NextResponse.json({ error: "No response from the model", result: findCategoryResult.data }, { status: 500 });
+      return NextResponse.json({ error: "No response from the model" }, { status: 500 });
     }
 
-    const matchedCategories = JSON.parse(findCategoryResult.message.content);
+    let matchedCategories;
+    try {
+      matchedCategories = JSON.parse(findCategoryResult.message.content);
+    } catch (error) {
+      return NextResponse.json({ error: findCategoryResult.message.content }, { status: 500 });
+    }
 
     if (!Array.isArray(matchedCategories) || matchedCategories.length === 0) {
       return NextResponse.json({ error: "No matched categories" }, { status: 500 });

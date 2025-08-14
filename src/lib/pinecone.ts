@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 
 const GPT_API_BASE_PARAMS = {
   userId: 'toby',
-  modelId: '64c8defd8607965500a10740',
+  modelId: '66e69fba475ef8897aed954f',
   params: {
     temperature: 0
   },
