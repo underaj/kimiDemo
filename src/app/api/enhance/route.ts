@@ -2,6 +2,7 @@ import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { SYSTEM_PROMPT } from './data';
+import { JSDOM } from 'jsdom';
 import { ChatCompletionMessageParam } from 'openai/resources';
 
 const CONFIG = {

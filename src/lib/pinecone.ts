@@ -1,19 +1,8 @@
+import { OPENAI_MODEL_ID } from '@/constants';
 import { AIMessageType } from '@/types/common';
 import { Pinecone } from '@pinecone-database/pinecone';
 import axios from 'axios';
 import OpenAI from 'openai';
-
-const GPT_API_BASE_PARAMS = {
-  userId: 'toby',
-  modelId: '66e69fba475ef8897aed954f',
-  params: {
-    temperature: 0
-  },
-  retry: {
-    behavior: 'retry',
-    max_retry: 1
-  }
-};
 
 // 配置
 const CONFIG = {
@@ -48,8 +37,27 @@ export interface PineconeSearchResult<T = DefaultPineconeMetadata> {
   metadata?: T;
 }
 
+let modelId = Object.keys(OPENAI_MODEL_ID)[0];
+
 // 单例 Pinecone 客户端
 let pineconeClient: Pinecone | null = null;
+
+const GPT_API_BASE_PARAMS = {
+  userId: 'toby',
+  params: {
+    temperature: 0
+  },
+  retry: {
+    behavior: 'retry',
+    max_retry: 1
+  }
+};
+
+export const setModelId = (modelKey: string) => {
+  const id = OPENAI_MODEL_ID[modelKey as keyof typeof OPENAI_MODEL_ID] || Object.keys(OPENAI_MODEL_ID)[0];
+  modelId = id;
+  GPT_API_BASE_PARAMS.params.temperature = modelKey !== '4o-mini' ? 1 : 0;
+};
 
 // 初始化 Pinecone 客户端（单例模式）
 export const initializePinecone = (): Pinecone => {
@@ -90,6 +98,7 @@ const initializeOpenAI = (): OpenAI => {
 export const callGPT = async (messages: AIMessageType[]) => {
   const result = await axios.post('http://18.136.221.208:3210/models/chatgpt/chat', {
     ...GPT_API_BASE_PARAMS,
+    modelId,
     messages,
   }, {
     headers: {
@@ -144,7 +153,7 @@ const expandQuery = async (query: string, prompt: string): Promise<string[]> => 
       .map(line => line.trim()) || [];
 
     // 返回原始查詢 + 擴展查詢
-    return [query, ...expandedQueries].slice(0, 5);
+    return [query, ...expandedQueries];
   } catch (error) {
     console.error('查詢擴展失敗:', error);
     // 回退到原始查詢
@@ -156,8 +165,8 @@ const expandQuery = async (query: string, prompt: string): Promise<string[]> => 
 export const searchSimilar = async <T = DefaultPineconeMetadata>(
   query: string, 
   topK: number = 10,
-  expandPrompt: string
-): Promise<PineconeSearchResult<T>[]> => {
+  expandPrompt: string,
+): Promise<{searchProfileResults: PineconeSearchResult<T>[], expandedQueries: string[]}> => {
   const pinecone = initializePinecone();
   const index = pinecone.index(CONFIG.PINECONE_INDEX_NAME);
   
@@ -218,5 +227,5 @@ export const searchSimilar = async <T = DefaultPineconeMetadata>(
     
   console.log(`查詢擴展結果: ${finalResults.length} 個，分數範圍: ${finalResults[0]?.score?.toFixed(3)} - ${finalResults[finalResults.length-1]?.score?.toFixed(3)}`);
   
-  return finalResults;
+  return { searchProfileResults: finalResults, expandedQueries };
 };
