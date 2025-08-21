@@ -96,7 +96,6 @@ const initializeOpenAI = (): OpenAI => {
 };
 
 export const callGPT = async (messages: AIMessageType[]) => {
-  console.log('modelId', modelId);
   const result = await axios.post('http://18.136.221.208:3210/models/chatgpt/chat', {
     ...GPT_API_BASE_PARAMS,
     modelId,

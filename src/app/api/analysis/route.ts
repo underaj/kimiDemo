@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     const currentMessages = [...messages];
 
     const findCategoryResult = await callGPT(currentMessages);
-    console.log("findCategoryResult", findCategoryResult);
+
     if (!findCategoryResult) {
       return NextResponse.json({ error: "No response from the model" }, { status: 500 });
     }
